@@ -1,12 +1,4 @@
 pandas
-numpy
+numpy>=1.16,<2.0
 matplotlib
-seaborn
 scikit-learn
-xgboost
-lightgbm
-tensorflow
-keras
-jupyter
-notebook
-ipykernel
