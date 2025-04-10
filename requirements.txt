@@ -3,3 +3,8 @@ numpy>=1.16,<2.0
 matplotlib
 catboost
 scikit-learn
+catboost
+seaborn
+shap
+ipywidgets
+plotly
