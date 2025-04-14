@@ -1,5 +1,3 @@
-pandas
-numpy>=1.16,<2.0
 matplotlib
 catboost
 scikit-learn
@@ -8,3 +6,5 @@ seaborn
 shap
 ipywidgets
 plotly
+optuna
+imbalanced_learn
