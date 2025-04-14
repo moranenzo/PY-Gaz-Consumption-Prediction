@@ -97,3 +97,20 @@ def plot_shap_dependence(model, X, feature_names, feature_name_or_index, interac
     )
     plt.title(f"SHAP Dependence Plot: {feature_name_or_index}")
     plt.show()
+
+def plot_native_feature_importance(model, feature_names, top_n=20, figsize=(10, 8)):
+
+    try:
+        feature_importance = model.get_feature_importance(prettified=True)
+        feature_importance = feature_importance.sort_values(by='Importances', ascending=False)
+
+        plt.figure(figsize=figsize)
+        sns.barplot(x='Importances', y='Feature Id', data=feature_importance.head(top_n), palette='viridis')
+        plt.title(f'CatBoost Native Feature Importance (Top {top_n})')
+        plt.xlabel('Importance')
+        plt.ylabel('Feature')
+        plt.tight_layout()
+        plt.show()
+
+    except Exception as e:
+        print(f"An error occurred while plotting feature importance: {e}")
