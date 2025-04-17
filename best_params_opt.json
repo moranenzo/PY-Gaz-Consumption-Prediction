@@ -1,9 +1,13 @@
 {
-    "iterations": 1800,
-    "learning_rate": 0.1615052852629874,
-    "depth": 3,
-    "l2_leaf_reg": 7.232237574790942,
-    "border_count": 198,
-    "monotone_constraints": null,
-    "per_float_feature_quantization": null
+    "iterations": 1175,
+    "learning_rate": 0.1415317628887264,
+    "depth": 4,
+    "l2_leaf_reg": 2.1909547630051276,
+    "border_count": 159,
+    "monotone_constraints": {
+        "teff_cwv": -1
+    },
+    "per_float_feature_quantization": [
+        "4:border_count=1024"
+    ]
 }
