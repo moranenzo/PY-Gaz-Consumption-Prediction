@@ -1,7 +1,7 @@
 {
-    "border_count": 162,
+    "border_count": 130,
     "depth": 4,
-    "iterations": 1528,
-    "l2_leaf_reg": 6.612771975694963,
-    "learning_rate": 0.1641934359909122
+    "iterations": 1413,
+    "l2_leaf_reg": 2.6080805141749863,
+    "learning_rate": 0.11974675787331722
 }
