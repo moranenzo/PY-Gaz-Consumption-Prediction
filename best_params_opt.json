@@ -1,9 +1,9 @@
 {
-    "iterations": 1175,
-    "learning_rate": 0.1415317628887264,
-    "depth": 4,
-    "l2_leaf_reg": 2.1909547630051276,
-    "border_count": 159,
+    "iterations": 1473,
+    "learning_rate": 0.04919467732864158,
+    "depth": 3,
+    "l2_leaf_reg": 1.4201190673616813,
+    "border_count": 187,
     "monotone_constraints": {
         "teff_cwv": -1
     },
