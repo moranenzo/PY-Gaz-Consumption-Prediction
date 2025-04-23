@@ -1,0 +1,12 @@
+{
+    "border_count": 200,
+    "depth": 3,
+    "iterations": 1750,
+    "l2_leaf_reg": 1.7149584102641793,
+    "learning_rate": 0.16230212634349447,
+    "monotone_constraints": {
+        "16": -1,
+        "58": 1
+    },
+    "per_float_feature_quantization": []
+}
