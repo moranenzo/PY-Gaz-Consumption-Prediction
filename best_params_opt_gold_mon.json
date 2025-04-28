@@ -1,9 +1,9 @@
 {
-    "quant_idx": 6,
+    "quant_idx": 0,
     "mono_idx": 0,
-    "iterations": 1624,
-    "learning_rate": 0.13442522841814547,
-    "depth": 3,
-    "l2_leaf_reg": 2.0280138788298303,
-    "border_count": 198
+    "iterations": 1841,
+    "learning_rate": 0.03431834646276711,
+    "depth": 6,
+    "l2_leaf_reg": 2.879851324918031,
+    "border_count": 142
 }
