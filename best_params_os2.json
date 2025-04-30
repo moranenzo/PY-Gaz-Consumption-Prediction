@@ -1,0 +1,11 @@
+{
+    "os_factor": 3,
+    "holiday_weight": 10,
+    "quant_idx": 12,
+    "mono_idx": 0,
+    "iterations": 2439,
+    "learning_rate": 0.04254888251512201,
+    "depth": 8,
+    "l2_leaf_reg": 2.090260485680825,
+    "border_count": 74
+}
