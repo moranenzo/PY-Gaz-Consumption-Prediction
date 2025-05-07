@@ -1,9 +1,0 @@
-{
-    "border_count": 211,
-    "depth": 4,
-    "iterations": 1794,
-    "l2_leaf_reg": 3.8454073458287383,
-    "learning_rate": 0.022702365918000268,
-    "monotone_constraints": {},
-    "per_float_feature_quantization": "16:border_count=512"
-}
