@@ -1,0 +1,659 @@
+{
+    "uid": "aac62149-7385-4223-b728-6de07a87f58a",
+    "name": "57_Xgboost_GoldenFeatures",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "lat",
+                "lon"
+            ],
+            "categorical": [
+                {
+                    "convert_method": "categorical_to_int",
+                    "convert_params": {
+                        "extended_holidays": {
+                            "Advent1st": 0,
+                            "Advent3rd": 1,
+                            "Advent4th": 2,
+                            "AllSouls": 3,
+                            "Annunciation": 4,
+                            "AshWednesday": 5,
+                            "BirthOfVirginMary": 6,
+                            "BoxingDay": 7,
+                            "CelebrationOfHolyCross": 8,
+                            "ChristTheKing": 9,
+                            "ChristmasDay": 10,
+                            "ChristmasEve": 11,
+                            "CorpusChristi": 12,
+                            "Easter": 13,
+                            "EasterMonday": 14,
+                            "Epiphany": 15,
+                            "FRAllSaints": 16,
+                            "FRArmisticeDay": 17,
+                            "FRAscension": 18,
+                            "FRAssumptionVirginMary": 19,
+                            "FRBastilleDay": 20,
+                            "FRFetDeLaVictoire1945": 21,
+                            "GoodFriday": 22,
+                            "GoodFridayAnnunciation": 23,
+                            "LaborDay": 24,
+                            "MassOfArchangels": 25,
+                            "NewYearsDay": 26,
+                            "NotAHoliday": 27,
+                            "PalmSunday": 28,
+                            "PalmSundayAnnunciation": 29,
+                            "Pentecost": 30,
+                            "PentecostMonday": 31,
+                            "PresentationOfLord": 32,
+                            "Quinquagesima": 33,
+                            "RogationSunday": 34,
+                            "RogationSundayLaborDay": 35,
+                            "Septuagesima": 36,
+                            "TransfigurationOfLord": 37,
+                            "TrinitySunday": 38
+                        }
+                    },
+                    "columns": [
+                        "extended_holidays"
+                    ]
+                },
+                {
+                    "convert_method": "categorical_to_onehot",
+                    "convert_params": {
+                        "below16.5_abc": {
+                            "new_columns": [
+                                "below16.5_abc_hot"
+                            ],
+                            "unique_values": [
+                                "cold",
+                                "hot"
+                            ],
+                            "old_column": "below16.5_abc",
+                            "old_column_dtype": "category"
+                        },
+                        "type_vol": {
+                            "new_columns": [
+                                "type_vol_vol_zero"
+                            ],
+                            "unique_values": [
+                                "vol_one",
+                                "vol_zero"
+                            ],
+                            "old_column": "type_vol",
+                            "old_column_dtype": "category"
+                        },
+                        "month": {
+                            "new_columns": [
+                                "month_April",
+                                "month_August",
+                                "month_December",
+                                "month_February",
+                                "month_January",
+                                "month_July",
+                                "month_June",
+                                "month_March",
+                                "month_May",
+                                "month_November",
+                                "month_October",
+                                "month_September"
+                            ],
+                            "unique_values": [
+                                "April",
+                                "August",
+                                "December",
+                                "February",
+                                "January",
+                                "July",
+                                "June",
+                                "March",
+                                "May",
+                                "November",
+                                "October",
+                                "September"
+                            ],
+                            "old_column": "month",
+                            "old_column_dtype": "category"
+                        },
+                        "isWeekday": {
+                            "new_columns": [
+                                "isWeekday_True"
+                            ],
+                            "unique_values": [
+                                "False",
+                                "True"
+                            ],
+                            "old_column": "isWeekday",
+                            "old_column_dtype": "bool"
+                        },
+                        "isWeekend": {
+                            "new_columns": [
+                                "isWeekend_True"
+                            ],
+                            "unique_values": [
+                                "False",
+                                "True"
+                            ],
+                            "old_column": "isWeekend",
+                            "old_column_dtype": "bool"
+                        },
+                        "isBizday": {
+                            "new_columns": [
+                                "isBizday_True"
+                            ],
+                            "unique_values": [
+                                "False",
+                                "True"
+                            ],
+                            "old_column": "isBizday",
+                            "old_column_dtype": "bool"
+                        },
+                        "isHoliday": {
+                            "new_columns": [
+                                "isHoliday_True"
+                            ],
+                            "unique_values": [
+                                "False",
+                                "True"
+                            ],
+                            "old_column": "isHoliday",
+                            "old_column_dtype": "bool"
+                        },
+                        "weekdays": {
+                            "new_columns": [
+                                "weekdays_Friday",
+                                "weekdays_Monday",
+                                "weekdays_Saturday",
+                                "weekdays_Sunday",
+                                "weekdays_Thursday",
+                                "weekdays_Tuesday",
+                                "weekdays_Wednesday"
+                            ],
+                            "unique_values": [
+                                "Friday",
+                                "Monday",
+                                "Saturday",
+                                "Sunday",
+                                "Thursday",
+                                "Tuesday",
+                                "Wednesday"
+                            ],
+                            "old_column": "weekdays",
+                            "old_column_dtype": "category"
+                        },
+                        "season": {
+                            "new_columns": [
+                                "season_low_season",
+                                "season_off_season",
+                                "season_peak_season"
+                            ],
+                            "unique_values": [
+                                "low_season",
+                                "off_season",
+                                "peak_season"
+                            ],
+                            "old_column": "season",
+                            "old_column_dtype": "category"
+                        },
+                        "season_astrono": {
+                            "new_columns": [
+                                "season_astrono_Autumn",
+                                "season_astrono_Spring",
+                                "season_astrono_Summer",
+                                "season_astrono_Winter"
+                            ],
+                            "unique_values": [
+                                "Autumn",
+                                "Spring",
+                                "Summer",
+                                "Winter"
+                            ],
+                            "old_column": "season_astrono",
+                            "old_column_dtype": "category"
+                        },
+                        "season_metero": {
+                            "new_columns": [
+                                "season_metero_Fall",
+                                "season_metero_Spring",
+                                "season_metero_Summer",
+                                "season_metero_Winter"
+                            ],
+                            "unique_values": [
+                                "Fall",
+                                "Spring",
+                                "Summer",
+                                "Winter"
+                            ],
+                            "old_column": "season_metero",
+                            "old_column_dtype": "category"
+                        },
+                        "public_holidays": {
+                            "new_columns": [
+                                "public_holidays_BoxingDay",
+                                "public_holidays_ChristmasDay",
+                                "public_holidays_EasterMonday",
+                                "public_holidays_FRAllSaints",
+                                "public_holidays_FRArmisticeDay",
+                                "public_holidays_FRAscension",
+                                "public_holidays_FRAssumptionVirginMary",
+                                "public_holidays_FRBastilleDay",
+                                "public_holidays_FRFetDeLaVictoire1945",
+                                "public_holidays_GoodFriday",
+                                "public_holidays_LaborDay",
+                                "public_holidays_NewYearsDay",
+                                "public_holidays_NotAHoliday",
+                                "public_holidays_PentecostMonday"
+                            ],
+                            "unique_values": [
+                                "BoxingDay",
+                                "ChristmasDay",
+                                "EasterMonday",
+                                "FRAllSaints",
+                                "FRArmisticeDay",
+                                "FRAscension",
+                                "FRAssumptionVirginMary",
+                                "FRBastilleDay",
+                                "FRFetDeLaVictoire1945",
+                                "GoodFriday",
+                                "LaborDay",
+                                "NewYearsDay",
+                                "NotAHoliday",
+                                "PentecostMonday"
+                            ],
+                            "old_column": "public_holidays",
+                            "old_column_dtype": "category"
+                        },
+                        "dow": {
+                            "new_columns": [
+                                "dow_Friday",
+                                "dow_Monday",
+                                "dow_Saturday",
+                                "dow_Sunday",
+                                "dow_Thursday",
+                                "dow_Tuesday",
+                                "dow_Wednesday"
+                            ],
+                            "unique_values": [
+                                "Friday",
+                                "Monday",
+                                "Saturday",
+                                "Sunday",
+                                "Thursday",
+                                "Tuesday",
+                                "Wednesday"
+                            ],
+                            "old_column": "dow",
+                            "old_column_dtype": "category"
+                        },
+                        "ponts_publics_abc": {
+                            "new_columns": [
+                                "ponts_publics_abc_AdjToHoliday",
+                                "ponts_publics_abc_Friday",
+                                "ponts_publics_abc_Monday",
+                                "ponts_publics_abc_Saturday",
+                                "ponts_publics_abc_SundayOrHoliday",
+                                "ponts_publics_abc_Thursday",
+                                "ponts_publics_abc_Tuesday",
+                                "ponts_publics_abc_Wednesday"
+                            ],
+                            "unique_values": [
+                                "AdjToHoliday",
+                                "Friday",
+                                "Monday",
+                                "Saturday",
+                                "SundayOrHoliday",
+                                "Thursday",
+                                "Tuesday",
+                                "Wednesday"
+                            ],
+                            "old_column": "ponts_publics_abc",
+                            "old_column_dtype": "category"
+                        },
+                        "ponts_extended_abc": {
+                            "new_columns": [
+                                "ponts_extended_abc_AdjToHoliday",
+                                "ponts_extended_abc_Friday",
+                                "ponts_extended_abc_Monday",
+                                "ponts_extended_abc_Saturday",
+                                "ponts_extended_abc_SundayOrHoliday",
+                                "ponts_extended_abc_Thursday",
+                                "ponts_extended_abc_Tuesday",
+                                "ponts_extended_abc_Wednesday"
+                            ],
+                            "unique_values": [
+                                "AdjToHoliday",
+                                "Friday",
+                                "Monday",
+                                "Saturday",
+                                "SundayOrHoliday",
+                                "Thursday",
+                                "Tuesday",
+                                "Wednesday"
+                            ],
+                            "old_column": "ponts_extended_abc",
+                            "old_column_dtype": "category"
+                        }
+                    },
+                    "columns": [
+                        "below16.5_abc",
+                        "type_vol",
+                        "month",
+                        "isWeekday",
+                        "isWeekend",
+                        "isBizday",
+                        "isHoliday",
+                        "weekdays",
+                        "season",
+                        "season_astrono",
+                        "season_metero",
+                        "public_holidays",
+                        "dow",
+                        "ponts_publics_abc",
+                        "ponts_extended_abc"
+                    ]
+                }
+            ],
+            "golden_features": {
+                "new_features": [
+                    {
+                        "feature1": "pitd_ewm_3",
+                        "feature2": "temp_mean",
+                        "operation": "ratio",
+                        "score": 0.0415086236
+                    },
+                    {
+                        "feature1": "pitd_ewm_3",
+                        "feature2": "tmoy",
+                        "operation": "ratio",
+                        "score": 0.0415086236
+                    },
+                    {
+                        "feature1": "pitd_lag1",
+                        "feature2": "tmoy",
+                        "operation": "ratio",
+                        "score": 0.0418199553
+                    },
+                    {
+                        "feature1": "pitd_lag1",
+                        "feature2": "temp_mean",
+                        "operation": "ratio",
+                        "score": 0.0418199553
+                    },
+                    {
+                        "feature1": "pitd_ma_3",
+                        "feature2": "temp_mean",
+                        "operation": "ratio",
+                        "score": 0.0431138471
+                    },
+                    {
+                        "feature1": "pitd_ma_3",
+                        "feature2": "tmoy",
+                        "operation": "ratio",
+                        "score": 0.0431138471
+                    },
+                    {
+                        "feature1": "temp_mean",
+                        "feature2": "pitd_lag1",
+                        "operation": "ratio",
+                        "score": 0.0469853403
+                    },
+                    {
+                        "feature1": "tmoy",
+                        "feature2": "pitd_lag1",
+                        "operation": "ratio",
+                        "score": 0.0469853403
+                    },
+                    {
+                        "feature1": "temp_mean",
+                        "feature2": "pitd_ewm_3",
+                        "operation": "ratio",
+                        "score": 0.0471833864
+                    },
+                    {
+                        "feature1": "tmoy",
+                        "feature2": "pitd_ewm_3",
+                        "operation": "ratio",
+                        "score": 0.0471833864
+                    }
+                ],
+                "new_columns": [
+                    "pitd_ewm_3_ratio_temp_mean",
+                    "pitd_ewm_3_ratio_tmoy",
+                    "pitd_lag1_ratio_tmoy",
+                    "pitd_lag1_ratio_temp_mean",
+                    "pitd_ma_3_ratio_temp_mean",
+                    "pitd_ma_3_ratio_tmoy",
+                    "temp_mean_ratio_pitd_lag1",
+                    "tmoy_ratio_pitd_lag1",
+                    "temp_mean_ratio_pitd_ewm_3",
+                    "tmoy_ratio_pitd_ewm_3"
+                ],
+                "ml_task": "regression"
+            },
+            "scale_y": {
+                "scale": [
+                    231473.89775625776
+                ],
+                "mean": [
+                    322370.0145294016
+                ],
+                "var": [
+                    53580165342.47447
+                ],
+                "n_samples_seen": 1469,
+                "n_features_in": 1,
+                "columns": [
+                    "target"
+                ],
+                "scale_method": "scale_normal"
+            },
+            "ml_task": "regression",
+            "params": {
+                "columns_preprocessing": {
+                    "below16.5_abc": [
+                        "categorical_to_onehot"
+                    ],
+                    "type_vol": [
+                        "categorical_to_onehot"
+                    ],
+                    "month": [
+                        "categorical_to_onehot"
+                    ],
+                    "isWeekday": [
+                        "categorical_to_onehot"
+                    ],
+                    "isWeekend": [
+                        "categorical_to_onehot"
+                    ],
+                    "isBizday": [
+                        "categorical_to_onehot"
+                    ],
+                    "isHoliday": [
+                        "categorical_to_onehot"
+                    ],
+                    "weekdays": [
+                        "categorical_to_onehot"
+                    ],
+                    "season": [
+                        "categorical_to_onehot"
+                    ],
+                    "season_astrono": [
+                        "categorical_to_onehot"
+                    ],
+                    "season_metero": [
+                        "categorical_to_onehot"
+                    ],
+                    "public_holidays": [
+                        "categorical_to_onehot"
+                    ],
+                    "extended_holidays": [
+                        "categorical_to_int"
+                    ],
+                    "dow": [
+                        "categorical_to_onehot"
+                    ],
+                    "ponts_publics_abc": [
+                        "categorical_to_onehot"
+                    ],
+                    "ponts_extended_abc": [
+                        "categorical_to_onehot"
+                    ],
+                    "lat": [
+                        "remove_column"
+                    ],
+                    "lon": [
+                        "remove_column"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude",
+                    "scale_normal"
+                ],
+                "ml_task": "regression",
+                "golden_features": {
+                    "results_path": "automl_results",
+                    "ml_task": "regression",
+                    "n_jobs": -1
+                }
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "3.0.0",
+            "algorithm_name": "Extreme Gradient Boosting",
+            "algorithm_short_name": "Xgboost",
+            "uid": "12bac6f0-f5e0-43bf-9abf-bf509d232175",
+            "params": {
+                "model_type": "Xgboost",
+                "ml_task": "regression",
+                "n_jobs": -1,
+                "seed": 1241,
+                "objective": "reg:squarederror",
+                "eta": 0.05,
+                "max_depth": 8,
+                "min_child_weight": 5,
+                "subsample": 0.6,
+                "colsample_bytree": 0.8,
+                "eval_metric": "rmse",
+                "explain_level": 1
+            },
+            "name": "learner_fold_0"
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rounds": 10000,
+            "early_stopping_rounds": 50,
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "below16.5_abc": [
+                    "categorical_to_onehot"
+                ],
+                "type_vol": [
+                    "categorical_to_onehot"
+                ],
+                "month": [
+                    "categorical_to_onehot"
+                ],
+                "isWeekday": [
+                    "categorical_to_onehot"
+                ],
+                "isWeekend": [
+                    "categorical_to_onehot"
+                ],
+                "isBizday": [
+                    "categorical_to_onehot"
+                ],
+                "isHoliday": [
+                    "categorical_to_onehot"
+                ],
+                "weekdays": [
+                    "categorical_to_onehot"
+                ],
+                "season": [
+                    "categorical_to_onehot"
+                ],
+                "season_astrono": [
+                    "categorical_to_onehot"
+                ],
+                "season_metero": [
+                    "categorical_to_onehot"
+                ],
+                "public_holidays": [
+                    "categorical_to_onehot"
+                ],
+                "extended_holidays": [
+                    "categorical_to_int"
+                ],
+                "dow": [
+                    "categorical_to_onehot"
+                ],
+                "ponts_publics_abc": [
+                    "categorical_to_onehot"
+                ],
+                "ponts_extended_abc": [
+                    "categorical_to_onehot"
+                ],
+                "lat": [
+                    "remove_column"
+                ],
+                "lon": [
+                    "remove_column"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude",
+                "scale_normal"
+            ],
+            "ml_task": "regression",
+            "golden_features": {
+                "results_path": "automl_results",
+                "ml_task": "regression",
+                "n_jobs": -1
+            }
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.8,
+            "shuffle": false,
+            "X_path": "automl_results\\X.data",
+            "y_path": "automl_results\\y.data",
+            "results_path": "automl_results"
+        },
+        "learner": {
+            "model_type": "Xgboost",
+            "ml_task": "regression",
+            "n_jobs": -1,
+            "seed": 1241,
+            "objective": "reg:squarederror",
+            "eta": 0.05,
+            "max_depth": 8,
+            "min_child_weight": 5,
+            "subsample": 0.6,
+            "colsample_bytree": 0.8,
+            "eval_metric": "rmse",
+            "explain_level": 1
+        },
+        "automl_random_state": 1234,
+        "ml_task": "regression",
+        "explain_level": 1,
+        "name": "57_Xgboost_GoldenFeatures",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original_categorical_mix_golden_features",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "57_Xgboost_GoldenFeatures\\learner_fold_0.xgboost.json"
+    ],
+    "predictions_fname": "57_Xgboost_GoldenFeatures\\predictions_validation.csv",
+    "metric_name": "rmse",
+    "final_loss": "17658.775828470905",
+    "train_time": 6.445519924163818,
+    "is_stacked": false,
+    "joblib_version": "1.5.0"
+}

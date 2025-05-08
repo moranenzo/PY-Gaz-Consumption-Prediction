@@ -1,0 +1,241 @@
+{
+    "uid": "25583f0c-7541-4501-b802-69241720b14a",
+    "name": "54_CatBoost_GoldenFeatures_SelectedFeatures",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "lat",
+                "lon"
+            ],
+            "golden_features": {
+                "new_features": [
+                    {
+                        "feature1": "pitd_ewm_3",
+                        "feature2": "temp_mean",
+                        "operation": "ratio",
+                        "score": 0.0415086236
+                    },
+                    {
+                        "feature1": "pitd_ewm_3",
+                        "feature2": "tmoy",
+                        "operation": "ratio",
+                        "score": 0.0415086236
+                    },
+                    {
+                        "feature1": "pitd_lag1",
+                        "feature2": "tmoy",
+                        "operation": "ratio",
+                        "score": 0.0418199553
+                    },
+                    {
+                        "feature1": "pitd_lag1",
+                        "feature2": "temp_mean",
+                        "operation": "ratio",
+                        "score": 0.0418199553
+                    },
+                    {
+                        "feature1": "pitd_ma_3",
+                        "feature2": "temp_mean",
+                        "operation": "ratio",
+                        "score": 0.0431138471
+                    },
+                    {
+                        "feature1": "pitd_ma_3",
+                        "feature2": "tmoy",
+                        "operation": "ratio",
+                        "score": 0.0431138471
+                    },
+                    {
+                        "feature1": "temp_mean",
+                        "feature2": "pitd_lag1",
+                        "operation": "ratio",
+                        "score": 0.0469853403
+                    },
+                    {
+                        "feature1": "tmoy",
+                        "feature2": "pitd_lag1",
+                        "operation": "ratio",
+                        "score": 0.0469853403
+                    },
+                    {
+                        "feature1": "temp_mean",
+                        "feature2": "pitd_ewm_3",
+                        "operation": "ratio",
+                        "score": 0.0471833864
+                    },
+                    {
+                        "feature1": "tmoy",
+                        "feature2": "pitd_ewm_3",
+                        "operation": "ratio",
+                        "score": 0.0471833864
+                    }
+                ],
+                "new_columns": [
+                    "pitd_ewm_3_ratio_temp_mean",
+                    "pitd_ewm_3_ratio_tmoy",
+                    "pitd_lag1_ratio_tmoy",
+                    "pitd_lag1_ratio_temp_mean",
+                    "pitd_ma_3_ratio_temp_mean",
+                    "pitd_ma_3_ratio_tmoy",
+                    "temp_mean_ratio_pitd_lag1",
+                    "tmoy_ratio_pitd_lag1",
+                    "temp_mean_ratio_pitd_ewm_3",
+                    "tmoy_ratio_pitd_ewm_3"
+                ],
+                "ml_task": "regression"
+            },
+            "scale_y": {
+                "scale": [
+                    231473.89775625776
+                ],
+                "mean": [
+                    322370.0145294016
+                ],
+                "var": [
+                    53580165342.47447
+                ],
+                "n_samples_seen": 1469,
+                "n_features_in": 1,
+                "columns": [
+                    "target"
+                ],
+                "scale_method": "scale_normal"
+            },
+            "ml_task": "regression",
+            "drop_features": [
+                "extended_holidays",
+                "weekend_winter",
+                "teff_optim_diff_1",
+                "public_holidays",
+                "mday",
+                "holidays"
+            ],
+            "params": {
+                "columns_preprocessing": {
+                    "lat": [
+                        "remove_column"
+                    ],
+                    "lon": [
+                        "remove_column"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude",
+                    "scale_normal"
+                ],
+                "ml_task": "regression",
+                "golden_features": {
+                    "results_path": "automl_results",
+                    "ml_task": "regression",
+                    "n_jobs": -1
+                },
+                "drop_features": [
+                    "extended_holidays",
+                    "weekend_winter",
+                    "teff_optim_diff_1",
+                    "public_holidays",
+                    "mday",
+                    "holidays",
+                    "random_feature"
+                ]
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "1.2.7",
+            "algorithm_name": "CatBoost",
+            "algorithm_short_name": "CatBoost",
+            "uid": "03bef178-f3dc-4116-9714-47962a9533dc",
+            "params": {
+                "model_type": "CatBoost",
+                "ml_task": "regression",
+                "n_jobs": -1,
+                "seed": 1243,
+                "learning_rate": 0.025,
+                "depth": 8,
+                "rsm": 0.7,
+                "loss_function": "RMSE",
+                "eval_metric": "RMSE",
+                "explain_level": 1
+            },
+            "name": "learner_fold_0",
+            "best_ntree_limit": 2553
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rounds": 10000,
+            "early_stopping_rounds": 50,
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "lat": [
+                    "remove_column"
+                ],
+                "lon": [
+                    "remove_column"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude",
+                "scale_normal"
+            ],
+            "ml_task": "regression",
+            "golden_features": {
+                "results_path": "automl_results",
+                "ml_task": "regression",
+                "n_jobs": -1
+            },
+            "drop_features": [
+                "extended_holidays",
+                "weekend_winter",
+                "teff_optim_diff_1",
+                "public_holidays",
+                "mday",
+                "holidays",
+                "random_feature"
+            ]
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.8,
+            "shuffle": false,
+            "X_path": "automl_results\\X.data",
+            "y_path": "automl_results\\y.data",
+            "results_path": "automl_results"
+        },
+        "learner": {
+            "model_type": "CatBoost",
+            "ml_task": "regression",
+            "n_jobs": -1,
+            "seed": 1243,
+            "learning_rate": 0.025,
+            "depth": 8,
+            "rsm": 0.7,
+            "loss_function": "RMSE",
+            "eval_metric": "RMSE",
+            "explain_level": 1
+        },
+        "automl_random_state": 1234,
+        "ml_task": "regression",
+        "explain_level": 1,
+        "name": "54_CatBoost_GoldenFeatures_SelectedFeatures",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original_golden_features_features_selection",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "54_CatBoost_GoldenFeatures_SelectedFeatures\\learner_fold_0.catboost"
+    ],
+    "predictions_fname": "54_CatBoost_GoldenFeatures_SelectedFeatures\\predictions_validation.csv",
+    "metric_name": "rmse",
+    "final_loss": "17326.20792019063",
+    "train_time": 106.84012937545776,
+    "is_stacked": false,
+    "joblib_version": "1.5.0"
+}

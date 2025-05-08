@@ -1,0 +1,404 @@
+{
+    "uid": "7cf765df-9b9e-42b7-a30a-e41b3da933cb",
+    "name": "22_LightGBM",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "lat",
+                "lon"
+            ],
+            "categorical": [
+                {
+                    "convert_method": "categorical_to_int",
+                    "convert_params": {
+                        "below16.5_abc": {
+                            "cold": 0,
+                            "hot": 1
+                        },
+                        "type_vol": {
+                            "vol_one": 0,
+                            "vol_zero": 1
+                        },
+                        "month": {
+                            "April": 0,
+                            "August": 1,
+                            "December": 2,
+                            "February": 3,
+                            "January": 4,
+                            "July": 5,
+                            "June": 6,
+                            "March": 7,
+                            "May": 8,
+                            "November": 9,
+                            "October": 10,
+                            "September": 11
+                        },
+                        "isWeekday": {
+                            "False": 0,
+                            "True": 1
+                        },
+                        "isWeekend": {
+                            "False": 0,
+                            "True": 1
+                        },
+                        "isBizday": {
+                            "False": 0,
+                            "True": 1
+                        },
+                        "isHoliday": {
+                            "False": 0,
+                            "True": 1
+                        },
+                        "weekdays": {
+                            "Friday": 0,
+                            "Monday": 1,
+                            "Saturday": 2,
+                            "Sunday": 3,
+                            "Thursday": 4,
+                            "Tuesday": 5,
+                            "Wednesday": 6
+                        },
+                        "season": {
+                            "low_season": 0,
+                            "off_season": 1,
+                            "peak_season": 2
+                        },
+                        "season_astrono": {
+                            "Autumn": 0,
+                            "Spring": 1,
+                            "Summer": 2,
+                            "Winter": 3
+                        },
+                        "season_metero": {
+                            "Fall": 0,
+                            "Spring": 1,
+                            "Summer": 2,
+                            "Winter": 3
+                        },
+                        "public_holidays": {
+                            "BoxingDay": 0,
+                            "ChristmasDay": 1,
+                            "EasterMonday": 2,
+                            "FRAllSaints": 3,
+                            "FRArmisticeDay": 4,
+                            "FRAscension": 5,
+                            "FRAssumptionVirginMary": 6,
+                            "FRBastilleDay": 7,
+                            "FRFetDeLaVictoire1945": 8,
+                            "GoodFriday": 9,
+                            "LaborDay": 10,
+                            "NewYearsDay": 11,
+                            "NotAHoliday": 12,
+                            "PentecostMonday": 13
+                        },
+                        "extended_holidays": {
+                            "Advent1st": 0,
+                            "Advent3rd": 1,
+                            "Advent4th": 2,
+                            "AllSouls": 3,
+                            "Annunciation": 4,
+                            "AshWednesday": 5,
+                            "BirthOfVirginMary": 6,
+                            "BoxingDay": 7,
+                            "CelebrationOfHolyCross": 8,
+                            "ChristTheKing": 9,
+                            "ChristmasDay": 10,
+                            "ChristmasEve": 11,
+                            "CorpusChristi": 12,
+                            "Easter": 13,
+                            "EasterMonday": 14,
+                            "Epiphany": 15,
+                            "FRAllSaints": 16,
+                            "FRArmisticeDay": 17,
+                            "FRAscension": 18,
+                            "FRAssumptionVirginMary": 19,
+                            "FRBastilleDay": 20,
+                            "FRFetDeLaVictoire1945": 21,
+                            "GoodFriday": 22,
+                            "GoodFridayAnnunciation": 23,
+                            "LaborDay": 24,
+                            "MassOfArchangels": 25,
+                            "NewYearsDay": 26,
+                            "NotAHoliday": 27,
+                            "PalmSunday": 28,
+                            "PalmSundayAnnunciation": 29,
+                            "Pentecost": 30,
+                            "PentecostMonday": 31,
+                            "PresentationOfLord": 32,
+                            "Quinquagesima": 33,
+                            "RogationSunday": 34,
+                            "RogationSundayLaborDay": 35,
+                            "Septuagesima": 36,
+                            "TransfigurationOfLord": 37,
+                            "TrinitySunday": 38
+                        },
+                        "dow": {
+                            "Friday": 0,
+                            "Monday": 1,
+                            "Saturday": 2,
+                            "Sunday": 3,
+                            "Thursday": 4,
+                            "Tuesday": 5,
+                            "Wednesday": 6
+                        },
+                        "ponts_publics_abc": {
+                            "AdjToHoliday": 0,
+                            "Friday": 1,
+                            "Monday": 2,
+                            "Saturday": 3,
+                            "SundayOrHoliday": 4,
+                            "Thursday": 5,
+                            "Tuesday": 6,
+                            "Wednesday": 7
+                        },
+                        "ponts_extended_abc": {
+                            "AdjToHoliday": 0,
+                            "Friday": 1,
+                            "Monday": 2,
+                            "Saturday": 3,
+                            "SundayOrHoliday": 4,
+                            "Thursday": 5,
+                            "Tuesday": 6,
+                            "Wednesday": 7
+                        }
+                    },
+                    "columns": [
+                        "below16.5_abc",
+                        "type_vol",
+                        "month",
+                        "isWeekday",
+                        "isWeekend",
+                        "isBizday",
+                        "isHoliday",
+                        "weekdays",
+                        "season",
+                        "season_astrono",
+                        "season_metero",
+                        "public_holidays",
+                        "extended_holidays",
+                        "dow",
+                        "ponts_publics_abc",
+                        "ponts_extended_abc"
+                    ]
+                }
+            ],
+            "scale_y": {
+                "scale": [
+                    231473.89775625776
+                ],
+                "mean": [
+                    322370.0145294016
+                ],
+                "var": [
+                    53580165342.47447
+                ],
+                "n_samples_seen": 1469,
+                "n_features_in": 1,
+                "columns": [
+                    "target"
+                ],
+                "scale_method": "scale_normal"
+            },
+            "ml_task": "regression",
+            "params": {
+                "columns_preprocessing": {
+                    "below16.5_abc": [
+                        "categorical_to_int"
+                    ],
+                    "type_vol": [
+                        "categorical_to_int"
+                    ],
+                    "month": [
+                        "categorical_to_int"
+                    ],
+                    "isWeekday": [
+                        "categorical_to_int"
+                    ],
+                    "isWeekend": [
+                        "categorical_to_int"
+                    ],
+                    "isBizday": [
+                        "categorical_to_int"
+                    ],
+                    "isHoliday": [
+                        "categorical_to_int"
+                    ],
+                    "weekdays": [
+                        "categorical_to_int"
+                    ],
+                    "season": [
+                        "categorical_to_int"
+                    ],
+                    "season_astrono": [
+                        "categorical_to_int"
+                    ],
+                    "season_metero": [
+                        "categorical_to_int"
+                    ],
+                    "public_holidays": [
+                        "categorical_to_int"
+                    ],
+                    "extended_holidays": [
+                        "categorical_to_int"
+                    ],
+                    "dow": [
+                        "categorical_to_int"
+                    ],
+                    "ponts_publics_abc": [
+                        "categorical_to_int"
+                    ],
+                    "ponts_extended_abc": [
+                        "categorical_to_int"
+                    ],
+                    "lat": [
+                        "remove_column"
+                    ],
+                    "lon": [
+                        "remove_column"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude",
+                    "scale_normal"
+                ],
+                "ml_task": "regression"
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "4.6.0",
+            "algorithm_name": "LightGBM",
+            "algorithm_short_name": "LightGBM",
+            "uid": "ff52d85c-aec1-456e-b959-b0267b3be405",
+            "params": {
+                "model_type": "LightGBM",
+                "ml_task": "regression",
+                "n_jobs": -1,
+                "seed": 1241,
+                "objective": "regression",
+                "num_leaves": 63,
+                "learning_rate": 0.05,
+                "feature_fraction": 0.9,
+                "bagging_fraction": 0.8,
+                "min_data_in_leaf": 30,
+                "metric": "rmse",
+                "custom_eval_metric_name": null,
+                "explain_level": 1
+            },
+            "name": "learner_fold_0"
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rounds": 10000,
+            "early_stopping_rounds": 50,
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "below16.5_abc": [
+                    "categorical_to_int"
+                ],
+                "type_vol": [
+                    "categorical_to_int"
+                ],
+                "month": [
+                    "categorical_to_int"
+                ],
+                "isWeekday": [
+                    "categorical_to_int"
+                ],
+                "isWeekend": [
+                    "categorical_to_int"
+                ],
+                "isBizday": [
+                    "categorical_to_int"
+                ],
+                "isHoliday": [
+                    "categorical_to_int"
+                ],
+                "weekdays": [
+                    "categorical_to_int"
+                ],
+                "season": [
+                    "categorical_to_int"
+                ],
+                "season_astrono": [
+                    "categorical_to_int"
+                ],
+                "season_metero": [
+                    "categorical_to_int"
+                ],
+                "public_holidays": [
+                    "categorical_to_int"
+                ],
+                "extended_holidays": [
+                    "categorical_to_int"
+                ],
+                "dow": [
+                    "categorical_to_int"
+                ],
+                "ponts_publics_abc": [
+                    "categorical_to_int"
+                ],
+                "ponts_extended_abc": [
+                    "categorical_to_int"
+                ],
+                "lat": [
+                    "remove_column"
+                ],
+                "lon": [
+                    "remove_column"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude",
+                "scale_normal"
+            ],
+            "ml_task": "regression"
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.8,
+            "shuffle": false,
+            "X_path": "automl_results\\X.data",
+            "y_path": "automl_results\\y.data",
+            "results_path": "automl_results"
+        },
+        "learner": {
+            "model_type": "LightGBM",
+            "ml_task": "regression",
+            "n_jobs": -1,
+            "seed": 1241,
+            "objective": "regression",
+            "num_leaves": 63,
+            "learning_rate": 0.05,
+            "feature_fraction": 0.9,
+            "bagging_fraction": 0.8,
+            "min_data_in_leaf": 30,
+            "metric": "rmse",
+            "custom_eval_metric_name": null,
+            "explain_level": 1
+        },
+        "automl_random_state": 1234,
+        "ml_task": "regression",
+        "explain_level": 1,
+        "name": "22_LightGBM",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "22_LightGBM\\learner_fold_0.lightgbm"
+    ],
+    "predictions_fname": "22_LightGBM\\predictions_validation.csv",
+    "metric_name": "rmse",
+    "final_loss": "19927.323362458686",
+    "train_time": 1.6028144359588623,
+    "is_stacked": false,
+    "joblib_version": "1.5.0"
+}
