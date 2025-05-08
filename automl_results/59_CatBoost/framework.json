@@ -1,0 +1,231 @@
+{
+    "uid": "f7af497b-b353-412f-a249-f004baea6231",
+    "name": "59_CatBoost",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "lat",
+                "lon"
+            ],
+            "kmeans": {
+                "new_features": [
+                    "Dist_Cluster_0",
+                    "Dist_Cluster_1",
+                    "Dist_Cluster_2",
+                    "Dist_Cluster_3",
+                    "Dist_Cluster_4",
+                    "Dist_Cluster_5",
+                    "Dist_Cluster_6",
+                    "Dist_Cluster_7",
+                    "Dist_Cluster_8",
+                    "Dist_Cluster_9",
+                    "Dist_Cluster_10",
+                    "Dist_Cluster_11",
+                    "Dist_Cluster_12",
+                    "Dist_Cluster_13",
+                    "Dist_Cluster_14",
+                    "Dist_Cluster_15",
+                    "Dist_Cluster_16",
+                    "Dist_Cluster_17",
+                    "Dist_Cluster_18",
+                    "Dist_Cluster_19",
+                    "Dist_Cluster_20",
+                    "Dist_Cluster_21",
+                    "Dist_Cluster_22",
+                    "Dist_Cluster_23",
+                    "Dist_Cluster_24",
+                    "Cluster"
+                ],
+                "result_file": "59_CatBoost\\kmeans_fold_0.joblib",
+                "input_columns": [
+                    "li",
+                    "li_terega",
+                    "temp_mean",
+                    "tmoy",
+                    "tmoy1",
+                    "tmoy2",
+                    "teff_optim",
+                    "teff_constr",
+                    "teff_cwv",
+                    "below16.5",
+                    "tmoy_diff_1",
+                    "teff_optim_diff_1",
+                    "teff_constr_diff_1",
+                    "teff_cwv_diff_1",
+                    "etats",
+                    "nmonth",
+                    "year",
+                    "weekend",
+                    "not_weekend",
+                    "cosinus",
+                    "sinus",
+                    "quarter",
+                    "doy",
+                    "mday",
+                    "woy",
+                    "wday",
+                    "noel.structural",
+                    "aout.structural",
+                    "ponts_publics",
+                    "ponts_extended",
+                    "holidays",
+                    "daydur",
+                    "hdd",
+                    "rolling_hdd_7",
+                    "pitd_lag1",
+                    "hdd_lag1",
+                    "tmoy_lag1",
+                    "pitd_lag2",
+                    "hdd_lag2",
+                    "tmoy_lag2",
+                    "pitd_lag3",
+                    "hdd_lag3",
+                    "tmoy_lag3",
+                    "pitd_lag7",
+                    "hdd_lag7",
+                    "tmoy_lag7",
+                    "pitd_lag14",
+                    "hdd_lag14",
+                    "tmoy_lag14",
+                    "lag1_to_lag7_ratio",
+                    "pitd_ma_3",
+                    "pitd_ewm_3",
+                    "pitd_std_3",
+                    "pitd_ma_7",
+                    "pitd_ewm_7",
+                    "pitd_std_7",
+                    "pitd_ma_14",
+                    "pitd_ewm_14",
+                    "pitd_std_14",
+                    "is_winter",
+                    "weekend_winter",
+                    "weekend_cold",
+                    "days_to_holiday",
+                    "hdd_bizday"
+                ]
+            },
+            "scale_y": {
+                "scale": [
+                    231473.89775625776
+                ],
+                "mean": [
+                    322370.0145294016
+                ],
+                "var": [
+                    53580165342.47447
+                ],
+                "n_samples_seen": 1469,
+                "n_features_in": 1,
+                "columns": [
+                    "target"
+                ],
+                "scale_method": "scale_normal"
+            },
+            "ml_task": "regression",
+            "params": {
+                "columns_preprocessing": {
+                    "lat": [
+                        "remove_column"
+                    ],
+                    "lon": [
+                        "remove_column"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude",
+                    "scale_normal"
+                ],
+                "ml_task": "regression",
+                "kmeans_features": {
+                    "results_path": "automl_results"
+                }
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "1.2.7",
+            "algorithm_name": "CatBoost",
+            "algorithm_short_name": "CatBoost",
+            "uid": "bc43203c-4232-49b1-b426-7e93e11356fd",
+            "params": {
+                "model_type": "CatBoost",
+                "ml_task": "regression",
+                "n_jobs": -1,
+                "seed": 1243,
+                "learning_rate": 0.025,
+                "depth": 6,
+                "rsm": 0.7,
+                "loss_function": "RMSE",
+                "eval_metric": "RMSE",
+                "explain_level": 1
+            },
+            "name": "learner_fold_0",
+            "best_ntree_limit": 1708
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rounds": 10000,
+            "early_stopping_rounds": 50,
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "lat": [
+                    "remove_column"
+                ],
+                "lon": [
+                    "remove_column"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude",
+                "scale_normal"
+            ],
+            "ml_task": "regression",
+            "kmeans_features": {
+                "results_path": "automl_results"
+            }
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.8,
+            "shuffle": false,
+            "X_path": "automl_results\\X.data",
+            "y_path": "automl_results\\y.data",
+            "results_path": "automl_results"
+        },
+        "learner": {
+            "model_type": "CatBoost",
+            "ml_task": "regression",
+            "n_jobs": -1,
+            "seed": 1243,
+            "learning_rate": 0.025,
+            "depth": 6,
+            "rsm": 0.7,
+            "loss_function": "RMSE",
+            "eval_metric": "RMSE",
+            "explain_level": 1
+        },
+        "automl_random_state": 1234,
+        "ml_task": "regression",
+        "explain_level": 1,
+        "name": "59_CatBoost",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original_kmeans_features",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "59_CatBoost\\learner_fold_0.catboost"
+    ],
+    "predictions_fname": "59_CatBoost\\predictions_validation.csv",
+    "metric_name": "rmse",
+    "final_loss": "17468.53322528171",
+    "train_time": 43.14118838310242,
+    "is_stacked": false,
+    "joblib_version": "1.5.0"
+}

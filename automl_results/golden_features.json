@@ -1,0 +1,77 @@
+{
+    "new_features": [
+        {
+            "feature1": "pitd_ewm_3",
+            "feature2": "temp_mean",
+            "operation": "ratio",
+            "score": 0.0415086236
+        },
+        {
+            "feature1": "pitd_ewm_3",
+            "feature2": "tmoy",
+            "operation": "ratio",
+            "score": 0.0415086236
+        },
+        {
+            "feature1": "pitd_lag1",
+            "feature2": "tmoy",
+            "operation": "ratio",
+            "score": 0.0418199553
+        },
+        {
+            "feature1": "pitd_lag1",
+            "feature2": "temp_mean",
+            "operation": "ratio",
+            "score": 0.0418199553
+        },
+        {
+            "feature1": "pitd_ma_3",
+            "feature2": "temp_mean",
+            "operation": "ratio",
+            "score": 0.0431138471
+        },
+        {
+            "feature1": "pitd_ma_3",
+            "feature2": "tmoy",
+            "operation": "ratio",
+            "score": 0.0431138471
+        },
+        {
+            "feature1": "temp_mean",
+            "feature2": "pitd_lag1",
+            "operation": "ratio",
+            "score": 0.0469853403
+        },
+        {
+            "feature1": "tmoy",
+            "feature2": "pitd_lag1",
+            "operation": "ratio",
+            "score": 0.0469853403
+        },
+        {
+            "feature1": "temp_mean",
+            "feature2": "pitd_ewm_3",
+            "operation": "ratio",
+            "score": 0.0471833864
+        },
+        {
+            "feature1": "tmoy",
+            "feature2": "pitd_ewm_3",
+            "operation": "ratio",
+            "score": 0.0471833864
+        }
+    ],
+    "new_columns": [
+        "pitd_ewm_3_ratio_temp_mean",
+        "pitd_ewm_3_ratio_tmoy",
+        "pitd_lag1_ratio_tmoy",
+        "pitd_lag1_ratio_temp_mean",
+        "pitd_ma_3_ratio_temp_mean",
+        "pitd_ma_3_ratio_tmoy",
+        "temp_mean_ratio_pitd_lag1",
+        "tmoy_ratio_pitd_lag1",
+        "temp_mean_ratio_pitd_ewm_3",
+        "tmoy_ratio_pitd_ewm_3"
+    ],
+    "ml_task": "regression"
+}
