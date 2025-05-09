@@ -8,3 +8,4 @@ ipywidgets
 plotly
 optuna
 imbalanced_learn
+optuna-integration[catboost]
