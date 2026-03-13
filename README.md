@@ -32,7 +32,7 @@ By leveraging holiday oversampling, automated hyperparameter optimization (Optun
 ## Project Structure
 
 ```
-PY-Gaz-Consumption-Prediction/
+Gas-Consumption-Forecasting/
 │
 ├── data/
 │   └── conso_data.csv              # Main dataset (not included, request from ENGIE)
@@ -113,8 +113,8 @@ PY-Gaz-Consumption-Prediction/
 ### Installation
 
 ```bash
-git clone https://github.com/<your-username>/PY-Gaz-Consumption-Prediction.git
-cd PY-Gaz-Consumption-Prediction
+git clone https://github.com/<your-username>/Gas-Consumption-Forecasting.git
+cd Gas-Consumption-Forecasting
 pip install -r requirements.txt
 ```
 
